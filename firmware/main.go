@@ -13,6 +13,28 @@ const (
 	fc4 = machine.D3
 )
 
+type keycodes struct {
+	key1 keyboard.Keycode
+	key2 keyboard.Keycode
+	key3 keyboard.Keycode
+	key4 keyboard.Keycode
+}
+
+func New(key1, key2, key3, key4 keyboard.Keycode) *keycodes {
+	return &keycodes{key1, key2, key3, key4}
+}
+
+var keys *keycodes
+
+func init() {
+	keys = New(
+		keyboard.KeyRight,
+		keyboard.KeyUp,
+		keyboard.KeyDown,
+		keyboard.KeyLeft,
+	)
+}
+
 func main() {
 	for _, fc := range []machine.Pin{fc1, fc2, fc3, fc4} {
 		fc.Configure(machine.PinConfig{Mode: machine.PinInputPullup})
@@ -22,21 +44,21 @@ func main() {
 	for {
 		if fc1.Get() {
 			println("pushing: fc1")
-			kb.Down(keyboard.KeyRight)
+			kb.Down(keys.key1)
 		} else if fc2.Get() {
 			println("pushing: fc2")
-			kb.Down(keyboard.KeyUp)
+			kb.Down(keys.key2)
 		} else if fc3.Get() {
 			println("pushing: fc3")
-			kb.Down(keyboard.KeyDown)
+			kb.Down(keys.key3)
 		} else if fc4.Get() {
 			println("pushing: fc4")
-			kb.Down(keyboard.KeyLeft)
+			kb.Down(keys.key4)
 		} else {
-			kb.Up(keyboard.KeyRight)
-			kb.Up(keyboard.KeyUp)
-			kb.Up(keyboard.KeyDown)
-			kb.Up(keyboard.KeyLeft)
+			kb.Up(keys.key1)
+			kb.Up(keys.key2)
+			kb.Up(keys.key3)
+			kb.Up(keys.key4)
 		}
 		time.Sleep(32*time.Millisecond - wait*3)
 	}
