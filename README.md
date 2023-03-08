@@ -2,6 +2,8 @@
 
 Footcon is a USB device that send keyboard-like keys to a PC with a foot pedal.
 
+<img src="images/footcon.png" width="70%" />
+
 ## Hardware
 
 The hardware composition is based on References 1. (Japanese website).  
@@ -19,7 +21,6 @@ Composition detail is below:
 * Microcontroller board
     * [Seeed Studio XIAO SAMD21](https://lab.seeed.co.jp/entry/2022/08/19/120000)
 
-Image...
 
 ## Software
 
