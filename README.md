@@ -64,3 +64,7 @@ $ ./config_gui
 ## License
 
 This project is licensed under the MIT license.
+
+## Author
+
+Akifumi Kitabatake (a.k.a akif or akif999)
