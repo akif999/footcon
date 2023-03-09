@@ -45,7 +45,9 @@ $ tinygo flash -target=xiao
 * Requirement
     * Tinygo 0.27 or later
 
-### Config GUI
+### Config GUI(WIP)
+
+**Configuration GUI will be implemented as soon as Tinygo0.28.0 is released.**
 
 Build [config_gui](https://github.com/akif999/footcon/tree/main/config_gui) and below to create an executable and use it.
 
